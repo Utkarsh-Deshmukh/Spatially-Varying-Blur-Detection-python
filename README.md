@@ -4,7 +4,7 @@ python implementation of the paper "***Spatially-Varying Blur Detection Based on
 # Brief Theory:
 - The discrete cosine transform is used to convert the image from spatial domain to frequency domain.
 - The DCT coefficients are divided into 'low', 'medium' and 'high' frequency bands, out of which only the high frequencies are used.
-- At a particular location, the high frequency DCT coefficients are extracted at various resolutions. All these selected coefficients are combined together and sorted to form the `multiscale-fused and sorted high-frequency transform coef-ficients`
+- At a particular location, the high frequency DCT coefficients are extracted at various resolutions. All these selected coefficients are combined together and sorted to form the `multiscale-fused and sorted high-frequency transform coefficients`
 - these coefficients show a visual difference for blurry vs sharp patches in the image (refer to fig 2 in the paper)
 - each of these coefficients results in the generation of a "filtered layer" for the image. The first layer is the smallest DCT high frequency coefficient while the last layer is the highest DCT high frequency coefficient at various scales. (refer to secion 2.1 in the paper)
 - The union of a subset of these layers is selected. This is then sent through a max pooling to retain the highest activation from the set of layers
