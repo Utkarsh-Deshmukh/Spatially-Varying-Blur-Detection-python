@@ -2,6 +2,7 @@
 python implementation of the paper "***Spatially-Varying Blur Detection Based on Multiscale Fused and Sorted Transform Coefficients of Gradient Magnitudes" - cvpr 2017***
 
 # Brief Theory:
+- The repo is a python implementation of the paper which can be found here: https://arxiv.org/pdf/1703.07478.pdf
 - The discrete cosine transform is used to convert the image from spatial domain to frequency domain.
 - The DCT coefficients are divided into 'low', 'medium' and 'high' frequency bands, out of which only the high frequencies are used.
 - At a particular location, the high frequency DCT coefficients are extracted at various resolutions. All these selected coefficients are combined together and sorted to form the `multiscale-fused and sorted high-frequency transform coefficients`
