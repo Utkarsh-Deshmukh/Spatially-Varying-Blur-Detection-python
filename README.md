@@ -17,6 +17,16 @@ if __name__ == '__main__':
     cv2.waitKey(0)
 ```
 
+# Results
+ ### Detecting Depth of field:
+![image](https://user-images.githubusercontent.com/13918778/119441249-aa3dc780-bcda-11eb-911b-432266dfa92c.png)
+--------------------------------------------------------------------------------------------------------------
+ ### Detecting various types of blurs:
+![image](https://user-images.githubusercontent.com/13918778/119441726-74e5a980-bcdb-11eb-8d55-55b3e2c5f7be.png)
+![image](https://user-images.githubusercontent.com/13918778/119441933-cee66f00-bcdb-11eb-907e-776ed1f47054.png)
+![image](https://user-images.githubusercontent.com/13918778/119442075-09e8a280-bcdc-11eb-826a-cf8277f3c7cc.png)
+--------------------------------------------------------------------------------------------------------------
+
 # Acknowledgements
 This algorithm is based on the paper: `Spatially-Varying Blur Detection Based on Multiscale Fused and SortedTransform Coefficients of Gradient Magnitudes`
 The paper can be found here: https://arxiv.org/pdf/1703.07478.pdf
