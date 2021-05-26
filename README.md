@@ -1,8 +1,9 @@
 # Spatially-Varying-Blur-Detection-python
 python implementation of the paper "***Spatially-Varying Blur Detection Based on Multiscale Fused and Sorted Transform Coefficients of Gradient Magnitudes" - cvpr 2017***
-
+--------------------------------------------------------------------------------------------------------------
 # Brief Theory:
-- The repo is a python implementation of the paper which can be found here: https://arxiv.org/pdf/1703.07478.pdf
+- The repo is a python implementation of the paper which can be found here
+[link to the paper](https://arxiv.org/pdf/1703.07478.pdf)
 - The discrete cosine transform is used to convert the image from spatial domain to frequency domain.
 - The DCT coefficients are divided into 'low', 'medium' and 'high' frequency bands, out of which only the high frequencies are used.
 - At a particular location, the high frequency DCT coefficients are extracted at various resolutions. All these selected coefficients are combined together and sorted to form the `multiscale-fused and sorted high-frequency transform coefficients`
@@ -10,7 +11,8 @@ python implementation of the paper "***Spatially-Varying Blur Detection Based on
 - each of these coefficients results in the generation of a "filtered layer" for the image. The first layer is the smallest DCT high frequency coefficient while the last layer is the highest DCT high frequency coefficient at various scales. (refer to secion 2.1 in the paper)
 - The union of a subset of these layers is selected. This is then sent through a max pooling to retain the highest activation from the set of layers
 - This resultant map is then sent for post processing which involves computing the local entropy and smoothing this local entropy map using a edge retaining smoothing filter such as `Domain transform recursive edge-preserving filter`. A guided filter can also be used here.
-- `Domain transform recursive edge-preserving filter` was proposed in 2011 and can be found here: [link to the paper](https://www.inf.ufrgs.br/~eslgastal/DomainTransform/Gastal_Oliveira_SIGGRAPH2011_Domain_Transform.pdf)
+- `Domain transform recursive edge-preserving filter` was proposed in 2011 and can be found here:
+[link to the paper](https://www.inf.ufrgs.br/~eslgastal/DomainTransform/Gastal_Oliveira_SIGGRAPH2011_Domain_Transform.pdf)
 --------------------------------------------------------------------------------------------------------------
 # Installation and Running an example:
 ## method 1 - use the library:
@@ -27,8 +29,10 @@ if __name__ == '__main__':
     cv2.imshow('blur_map', blur_map)
     cv2.waitKey(0)
 ```
+--------------------------------------------------------------------------------------------------------------
 # Results
- ### Detecting Depth of field:
+--------------------------------------------------------------------------------------------------------------
+### Detecting Depth of field:
 ![image](https://user-images.githubusercontent.com/13918778/119441249-aa3dc780-bcda-11eb-911b-432266dfa92c.png)
 --------------------------------------------------------------------------------------------------------------
  ### Detecting various types of blurs:
