@@ -1,6 +1,6 @@
 # Spatially-Varying-Blur-Detection-python
 python implementation of the paper "***Spatially-Varying Blur Detection Based on Multiscale Fused and Sorted Transform Coefficients of Gradient Magnitudes" - cvpr 2017***
---------------------------------------------------------------------------------------------------------------
+
 # Brief Theory:
 - The repo is a python implementation of the paper which can be found here
 [link to the paper](https://arxiv.org/pdf/1703.07478.pdf)
