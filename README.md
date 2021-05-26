@@ -14,8 +14,6 @@ python implementation of the paper "***Spatially-Varying Blur Detection Based on
 - The *Domain transform recursive edge-preserving filter* was proposed in 2011 and can be found here:
 [link to the paper](https://www.inf.ufrgs.br/~eslgastal/DomainTransform/Gastal_Oliveira_SIGGRAPH2011_Domain_Transform.pdf)
 
---------------------------------------------------------------------------------------------------------------
-
 # Installation and Running an example:
 ## method 1 - use the library:
 `pip install blur_detector`
