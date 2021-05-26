@@ -11,9 +11,11 @@ python implementation of the paper "***Spatially-Varying Blur Detection Based on
 - each of these coefficients results in the generation of a "filtered layer" for the image. The first layer is the smallest DCT high frequency coefficient while the last layer is the highest DCT high frequency coefficient at various scales. (refer to secion 2.1 in the paper)
 - The union of a subset of these layers is selected. This is then sent through a max pooling to retain the highest activation from the set of layers
 - This resultant map is then sent for post processing which involves computing the local entropy and smoothing this local entropy map using a edge retaining smoothing filter such as `Domain transform recursive edge-preserving filter`. A guided filter can also be used here.
-- `Domain transform recursive edge-preserving filter` was proposed in 2011 and can be found here:
+- The *Domain transform recursive edge-preserving filter* was proposed in 2011 and can be found here:
 [link to the paper](https://www.inf.ufrgs.br/~eslgastal/DomainTransform/Gastal_Oliveira_SIGGRAPH2011_Domain_Transform.pdf)
+
 --------------------------------------------------------------------------------------------------------------
+
 # Installation and Running an example:
 ## method 1 - use the library:
 `pip install blur_detector`
