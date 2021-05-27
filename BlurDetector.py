@@ -7,14 +7,14 @@ import copy
 import time
 
 class BlurDetector(object):
-    def __init__(self):
-        self.downsampling_factor = 4
-        self.num_scales = 4
-        self.scale_start = 3
-        self.entropy_filt_kernel_sze = 7
-        self.sigma_s_RF_filter = 15
-        self.sigma_r_RF_filter = 0.25
-        self.num_iterations_RF_filter = 3
+    def __init__(self, downsampling_factor=4, num_scales=4, scale_start=3, entropy_filt_kernel_sze=7, sigma_s_RF_filter=15, sigma_r_RF_filter=0.25, num_iterations_RF_filter=3):
+        self.downsampling_factor = downsampling_factor
+        self.num_scales = num_scales
+        self.scale_start = scale_start
+        self.entropy_filt_kernel_sze = entropy_filt_kernel_sze
+        self.sigma_s_RF_filter = sigma_s_RF_filter
+        self.sigma_r_RF_filter = sigma_r_RF_filter
+        self.num_iterations_RF_filter = num_iterations_RF_filter
         self.scales = self.createScalePyramid()
         self.__freqBands = []
         self.__dct_matrices = []
@@ -158,7 +158,7 @@ class BlurDetector(object):
 
         return(F)
 
-    def detectBlur(self, img):
+    def detectBlur(self, img, ):
         ori_rows, ori_cols = np.shape(img)
         # perform initial gausssian smoothing
         InputImageGaus = cv2.GaussianBlur(img, (3, 3), sigmaX=0.5, sigmaY=0.5)
