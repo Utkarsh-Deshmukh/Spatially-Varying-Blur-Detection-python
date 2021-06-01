@@ -1,3 +1,12 @@
+'''
+@inproceedings{golestaneh2017spatially,
+  title={Spatially-Varying Blur Detection Based on Multiscale Fused and Sorted Transform Coefficients of Gradient Magnitudes},
+  author={Golestaneh, S Alireza and Karam, Lina J},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  year={2017}
+}
+'''
+
 import cv2
 import numpy as np
 import os
