@@ -84,6 +84,28 @@ It will automatically find a suitable version constraint and install the package
 ```
 --------------------------------------------------------------------------------------------------------
 
+# Publish to Pypi
+Before you can actually publish your library, you will need to package it.
+
+```
+poetry build
+```
+
+This command will package your library in two different formats: `sdist` which is the source format, and `wheel` which is a `compiled` package.
+Once that is done you are ready to publish your library.
+
+Poetry will publish to PyPI by default. Anything that is published to PyPI is available automatically through Poetry.
+
+To share `blur_detection` library with the Python community, we would publish on PyPI as well. Doing so is really easy.
+
+```
+poetry publish
+```
+
+This will package and publish the library to PyPI, at the condition that you are a registered user and you have configured your credentials properly.
+
+---------------------------------------------------------------------------------------------------
+
 # Acknowledgements
 This algorithm is based on the paper: `Spatially-Varying Blur Detection Based on Multiscale Fused and SortedTransform Coefficients of Gradient Magnitudes`
 The paper can be found here: https://arxiv.org/pdf/1703.07478.pdf
