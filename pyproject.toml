@@ -1,0 +1,12 @@
+[tool.poetry]
+name = "blur_detector"
+version = "1.0.0"
+description = "Python package to detect blur in images"
+authors = ["Utkarsh Deshmukh <d_utkarsh@yahoo.co.in>"]
+
+[tool.poetry.dependencies]
+python = "^3.7.1"
+opencv-python = "*"
+skimage = "*"
+numpy = "*"
+

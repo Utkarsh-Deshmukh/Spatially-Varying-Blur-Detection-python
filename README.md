@@ -43,6 +43,69 @@ if __name__ == '__main__':
 # Algorithm overview:
 ![image](https://user-images.githubusercontent.com/13918778/119443637-c7749500-bcde-11eb-9b71-c16210e39910.png)
 --------------------------------------------------------------------------------------------------------------
+# Development/Testing Environment 
+This repository uses `poetry` as a package manager
+
+```
+Make sure your python version is >= 3.7
+python --version
+
+# Install poetry if you don't have it
+python -m pip install poetry
+
+# Install dependencies in a virtual environment
+poetry install 
+(This will install all locked dependencies from poetry.lock file)
+
+# Activate virtual environment
+poetry shell (Now you have a virtual environment with all dependencies)
+Alternatively, to avoid creating a new shell, you can manually activate the virtual environment by running `source {path_to_venv}/bin/activate`
+To get the path to your virtual environment run `poetry env info --path`. You can also combine these into a nice one-liner, `source $(poetry env info --path)/bin/activate`. To deactivate this virtual environment simply use `deactivate`.
+
+# Using poetry run
+To run your script simply use poetry run python your_script.py. This will automatically run your script in above created shell   
+
+# Specifying dependencies
+If you want to add dependencies to this project, you can specify them in the `tool.poetry.dependencies` section.
+
+For example;
+
+[tool.poetry.dependencies]
+pendulum = "^1.4"
+
+As you can see, it takes a mapping of package names and version constraints.
+Poetry uses this information to search for the right set of files in package "repositories" that you register in the tool.poetry.repositories section, or on PyPI by default. 
+Also, instead of modifying the pyproject.toml file by hand, you can use the add command.
+
+poetry add pendulum
+
+It will automatically find a suitable version constraint and install the package and subdependencies.
+
+```
+--------------------------------------------------------------------------------------------------------
+
+# Publish to Pypi
+Before you can actually publish your library, you will need to package it.
+
+```
+poetry build
+```
+
+This command will package your library in two different formats: `sdist` which is the source format, and `wheel` which is a `compiled` package.
+Once that is done you are ready to publish your library.
+
+Poetry will publish to PyPI by default. Anything that is published to PyPI is available automatically through Poetry.
+
+To share `blur_detection` library with the Python community, we would publish on PyPI as well. Doing so is really easy.
+
+```
+poetry publish
+```
+
+This will package and publish the library to PyPI, at the condition that you are a registered user and you have configured your credentials properly.
+
+---------------------------------------------------------------------------------------------------
+
 # Acknowledgements
 This algorithm is based on the paper: `Spatially-Varying Blur Detection Based on Multiscale Fused and SortedTransform Coefficients of Gradient Magnitudes`
 The paper can be found here: https://arxiv.org/pdf/1703.07478.pdf
