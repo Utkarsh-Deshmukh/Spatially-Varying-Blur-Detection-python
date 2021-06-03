@@ -43,6 +43,47 @@ if __name__ == '__main__':
 # Algorithm overview:
 ![image](https://user-images.githubusercontent.com/13918778/119443637-c7749500-bcde-11eb-9b71-c16210e39910.png)
 --------------------------------------------------------------------------------------------------------------
+# Development/Testing Environment 
+This repository uses `poetry` as a package manager
+
+```
+Make sure your python version is >= 3.7
+python --version
+
+# Install poetry if you don't have it
+python -m pip install poetry
+
+# Install dependencies in a virtual environment
+poetry install 
+(This will install all locked dependencies from poetry.lock file)
+
+# Activate virtual environment
+poetry shell (Now you have a virtual environment with all dependencies)
+Alternatively, to avoid creating a new shell, you can manually activate the virtual environment by running `source {path_to_venv}/bin/activate`
+To get the path to your virtual environment run `poetry env info --path`. You can also combine these into a nice one-liner, `source $(poetry env info --path)/bin/activate`. To deactivate this virtual environment simply use `deactivate`.
+
+# Using poetry run
+To run your script simply use poetry run python your_script.py. This will automatically run your script in above created shell   
+
+# Specifying dependencies
+If you want to add dependencies to this project, you can specify them in the `tool.poetry.dependencies` section.
+
+For example;
+
+[tool.poetry.dependencies]
+pendulum = "^1.4"
+
+As you can see, it takes a mapping of package names and version constraints.
+Poetry uses this information to search for the right set of files in package "repositories" that you register in the tool.poetry.repositories section, or on PyPI by default. 
+Also, instead of modifying the pyproject.toml file by hand, you can use the add command.
+
+poetry add pendulum
+
+It will automatically find a suitable version constraint and install the package and subdependencies.
+
+```
+--------------------------------------------------------------------------------------------------------
+
 # Acknowledgements
 This algorithm is based on the paper: `Spatially-Varying Blur Detection Based on Multiscale Fused and SortedTransform Coefficients of Gradient Magnitudes`
 The paper can be found here: https://arxiv.org/pdf/1703.07478.pdf
