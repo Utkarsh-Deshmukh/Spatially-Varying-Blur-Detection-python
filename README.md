@@ -1,6 +1,8 @@
 # Efficient-Spatially-Varying-Blur-Detection-python
 python implementation of the paper "***Spatially-Varying Blur Detection Based on Multiscale Fused and Sorted Transform Coefficients of Gradient Magnitudes" - cvpr 2017***
 
+***NOTE: This project outputs regions in an image which are sharp and blurry. In order to perform "OUT-OF-FOCUS" blur estimation, please refer to this repo: https://github.com/Utkarsh-Deshmukh/Blurry-Image-Detector***
+
 # Brief Theory:
 - The repo is a python implementation of the paper which can be found here
 [link to the paper](https://arxiv.org/pdf/1703.07478.pdf)
