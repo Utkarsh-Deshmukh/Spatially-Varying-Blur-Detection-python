@@ -16,7 +16,7 @@ import copy
 import time
 
 class BlurDetector(object):
-    def __init__(self, downsampling_factor=4, num_scales=4, scale_start=3, entropy_filt_kernel_sze=7, sigma_s_RF_filter=15, sigma_r_RF_filter=0.25, num_iterations_RF_filter=3):
+    def __init__(self, downsampling_factor=4, num_scales=4, scale_start=3, entropy_filt_kernel_sze=7, sigma_s_RF_filter=15, sigma_r_RF_filter=0.25, num_iterations_RF_filter=3, show_progress = True):
         self.downsampling_factor = downsampling_factor
         self.num_scales = num_scales
         self.scale_start = scale_start
@@ -28,6 +28,7 @@ class BlurDetector(object):
         self.__freqBands = []
         self.__dct_matrices = []
         self.freq_index = []
+        self.show_progress = show_progress
 
     def disp_progress(self, i, rows, old_progress):
         progress_dict = {10:'[|                  ] 10%',
@@ -41,8 +42,8 @@ class BlurDetector(object):
                          90:'[| | | | | | | | |  ] 90%',
                          100:'[| | | | | | | | | |] 100%'}
 
-        i_done = i / rows * 100;
-        p_done = round(i_done / 10) * 10;
+        i_done = i / rows * 100
+        p_done = round(i_done / 10) * 10
         if(p_done != old_progress):
             os.system('cls' if os.name == 'nt' else 'clear')
             print(progress_dict[p_done])
@@ -167,7 +168,7 @@ class BlurDetector(object):
 
         return(F)
 
-    def detectBlur(self, img, ):
+    def detectBlur(self, img):
         ori_rows, ori_cols = np.shape(img)
         # perform initial gausssian smoothing
         InputImageGaus = cv2.GaussianBlur(img, (3, 3), sigmaX=0.5, sigmaY=0.5)
@@ -198,14 +199,15 @@ class BlurDetector(object):
         n = 0
         old_progress = 0
         for i in range(int(max(self.scales)/2), rows - int(max(self.scales)/2), self.downsampling_factor):
-            old_progress = self.disp_progress(i, rows, old_progress)
+            if(self.show_progress):
+                old_progress = self.disp_progress(i, rows, old_progress)
             m = 0
             n += 1
             for j in range(int(max(self.scales) / 2), cols - int(max(self.scales) / 2), self.downsampling_factor):
                 m += 1
                 high_freq_components = []
                 for ind, curr_scale in enumerate(self.scales):
-                    Patch = __padded_image[i-np.int(curr_scale/2) : i+np.int(curr_scale/2) + 1, j-np.int(curr_scale/2) : j+np.int(curr_scale/2) + 1]
+                    Patch = __padded_image[i-int(curr_scale/2) : i+int(curr_scale/2) + 1, j-int(curr_scale/2) : j+int(curr_scale/2) + 1]
                     dct_coefficients = np.abs(self.__getDCTCoefficients(Patch, ind))
 
                     # store all high frequency components
